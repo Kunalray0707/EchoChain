@@ -1,7 +1,7 @@
-# EchoChain – Circular Economy & Secondary Market Lifecycle Analytics
+# ♻️ EchoChain – Circular Economy & Secondary Market Lifecycle Analytics
 
 <div align="center">
-  <img src="screenshots/page1_executive_overview.svg" alt="EchoChain Executive Dashboard Banner" width="100%" />
+  <img src="screenshots/page1_executive_overview.png" alt="EchoChain Executive Overview Dashboard" width="100%" />
 </div>
 
 <br/>
@@ -12,33 +12,56 @@
 [![Apache Spark](https://img.shields.io/badge/Apache%20Spark-3.5-orange.svg?logo=apachespark&logoColor=white)](https://spark.apache.org/)
 [![Delta Lake](https://img.shields.io/badge/Delta%20Lake-3.0-00ADEE.svg?logo=delta&logoColor=white)](https://delta.io/)
 [![Scrapy](https://img.shields.io/badge/Scrapy-2.11-red.svg?logo=scrapy&logoColor=white)](https://scrapy.org/)
-[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow.svg?logo=powerbi&logoColor=white)](https://powerbi.microsoft.com/)
-[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED.svg?logo=docker&logoColor=white)](https://www.docker.com/)
-[![CI/CD Pipeline](https://github.com/echochain/EchoChain/actions/workflows/ci_cd.yml/badge.svg)](https://github.com/echochain/EchoChain/actions)
+[![Power BI](https://img.shields.io/badge/Power%20BI-6--Page%20Suite-yellow.svg?logo=powerbi&logoColor=white)](https://powerbi.microsoft.com/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED.svg?logo=docker&logoColor=white)](https://www.docker.com/)
+[![CI/CD Pipeline](https://github.com/Kunalray0707/EchoChain/actions/workflows/ci_cd.yml/badge.svg)](https://github.com/Kunalray0707/EchoChain/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 </div>
 
 ---
 
-## Executive Overview
-**EchoChain** is an enterprise-grade Lakehouse analytics platform designed for global manufacturing companies. Historically, manufacturers lose visibility into product health, residual market value, component longevity, and environmental fate immediately after sale.
-
-EchoChain bridges internal ERP manufacturing data (Bill of Materials, production costs, warranty claims) with secondary marketplace data (scraped from **eBay, Facebook Marketplace, OLX, and BackMarket**) to deliver circular economy insights, component failure tracking, resale retention index modeling, and carbon avoidance analytics.
+## 📌 Table of Contents
+- [Executive Overview](#-executive-overview)
+- [Business Problem & Strategic Solution](#-business-problem--strategic-solution)
+- [Lakehouse Medallion Architecture](#-lakehouse-medallion-architecture)
+- [Power BI Executive Dashboard Gallery (6 Pages)](#-power-bi-executive-dashboard-gallery-6-pages)
+- [PySpark Delta Lake Pipeline Engine](#-pyspark-delta-lake-pipeline-engine)
+- [Scrapy Secondary Marketplace Web Crawlers](#-scrapy-secondary-marketplace-web-crawlers)
+- [Key Business KPIs & Mathematical Formulas](#-key-business-kpis--mathematical-formulas)
+- [40+ Enterprise DAX Measures Catalog](#-40-enterprise-dax-measures-catalog)
+- [Repository Folder Structure](#-repository-folder-structure)
+- [Quickstart & Installation Guide](#-quickstart--installation-guide)
+- [Docker & Containerized Deployment](#-docker--containerized-deployment)
+- [CI/CD & Quality Control](#-cicd--quality-control)
+- [License & Contributors](#-license--contributors)
 
 ---
 
-## 🏛️ Lakehouse Architecture & Medallion Data Flow
+## 🌟 Executive Overview
+**EchoChain** is an enterprise-grade Lakehouse analytics platform designed for global manufacturing enterprises (electronics, consumer appliances, optical gear, home hardware).
 
-EchoChain leverages the Databricks Medallion Architecture (Bronze -> Silver -> Gold) using **PySpark** and **Delta Lake** for processing.
+Historically, manufacturers lose product health and residual value visibility immediately after sale. EchoChain combines internal **ERP Bill of Materials (BOM)**, warranty claims datasets, and user e-waste records with external **secondary marketplace data** scraped from **eBay, Facebook Marketplace, OLX, and BackMarket**.
+
+By fusing internal manufacturing costs with external secondary market demand, EchoChain answers critical executive questions:
+1. **Refurbishment Candidates**: Which sold products exhibit high resale value retention and warrant OEM-certified trade-in / buy-back programs?
+2. **Component Failure Hotspots**: Which sub-assemblies (e.g. batteries, displays, motors, logic boards) drive warranty expenses?
+3. **Sustainability Impact**: How many metric tons of CO₂ and landfill e-waste are avoided through secondary market circulation?
+4. **OEM Trade-In Margins**: What is the ROI of OEM-backed buy-back programs factoring in repair costs and secondary prices?
+
+---
+
+## 🏛️ Lakehouse Medallion Architecture
+
+EchoChain implements the Databricks Medallion Architecture (**Bronze -> Silver -> Gold**) using **PySpark** and **Delta Lake**.
 
 ```mermaid
 flowchart TD
     subgraph Data Sources
         RAW1[Internal ERP BOM CSV]
         RAW2[Warranty Claims CSV]
-        RAW3[E-Waste CSV Dataset]
-        RAW4[Scraped Marketplace JSON - 50k Listings]
+        RAW3[User E-Waste CSV Dataset]
+        RAW4[Scraped Marketplace JSON - 50,000 Listings]
     end
 
     subgraph Bronze Layer [Raw Ingestion Delta Lake]
@@ -92,24 +115,147 @@ flowchart TD
 
 ---
 
-## 💡 Key Business Questions Solved
-- **Refurbishment Candidates**: Which sold products exhibit high secondary resale value retention and deserve official OEM trade-in / buy-back programs?
-- **Component Failure Hotspots**: Which sub-assembly components (e.g. batteries, displays, logic boards) drive the majority of warranty claim costs?
-- **Environmental Impact**: How many metric tons of CO₂ emissions and landfill e-waste are avoided through secondary market circulation?
-- **Financial Buy-Back Margins**: What is the ROI of OEM-certified trade-in programs factoring in repair costs and secondary resale prices?
+## 📊 Power BI Executive Dashboard Gallery (6 Pages)
+
+EchoChain includes a **6-Page Dark Theme Power BI Suite** built with glassmorphism aesthetics and glowing KPI scorecards.
+
+### Page 1: Executive Overview Dashboard
+> Focuses on macro circularity performance, total resale volume, landfill diversion rate, and high-level buy-back ROI.
+
+![Page 1 Executive Overview](screenshots/page1_executive_overview.png)
+
+* **Key Metrics**: Circularity Score (`86.4%`), Total Resale Volume (`$21.3M`), Landfill Diversion (`95.8%`), CO₂ Avoided (`14,250 Tons`), Buy-Back ROI (`34.2%`).
+* **Visuals**: Cost vs Recovery Waterfall, Ribbon Ranking by Marketplace Platform, Decomposition Tree for SKU circularity breakdown.
 
 ---
 
-## 💻 Tech Stack
-- **Core Languages**: Python 3.12, PySpark (Spark 3.5), SQL, DAX
-- **Data Ingestion & Web Scraping**: Scrapy 2.11, BeautifulSoup4, Requests, Random User-Agents, AutoThrottle
-- **Storage & Processing Engine**: PySpark, Delta Lake 3.0, Apache Spark, PyArrow, Pandas
-- **Business Intelligence**: Power BI (6-Page Dark Theme Dashboard Suite, 40+ DAX Measures)
-- **DevOps, Quality & Automation**: Docker, Docker Compose, PyTest, GitHub Actions CI/CD, Black, Isort, Pre-commit
+### Page 2: Sustainability & Environmental Impact
+> Tracks carbon emissions avoided, e-waste diversion tonnage, material recovery rates, and carbon offset financial value.
+
+![Page 2 Sustainability](screenshots/page2_sustainability.png)
+
+* **Key Metrics**: CO₂ Emissions Avoided (`14,250 Tons`), Carbon Financial Value (`$1.21M`), Material Recovery (`88.2%`), E-Waste Diverted (`1,840 Tons`).
+* **Visuals**: Scatter Plot (Carbon Footprint vs Resale Retention), Global Secondary Distribution Map, Material Composition Treemap.
 
 ---
 
-## 📂 Repository Structure
+### Page 3: Secondary Marketplace Analytics
+> Analyzes pricing distributions, seller ratings, product condition tiers, and location performance across secondary marketplaces.
+
+![Page 3 Marketplace Analytics](screenshots/page3_marketplace_analytics.png)
+
+* **Key Metrics**: Total Listings Count (`50,000`), Avg Resale Price (`$425.80`), Avg Seller Rating (`4.72 / 5.0`), Salvage Rate (`4.1%`).
+* **Visuals**: Resale Price by Condition Bar Chart, Listing Volume & Sales Trends, Seller Rating vs Shipping Heatmap.
+
+---
+
+### Page 4: Product Lifecycle & Resale Retention
+> Tracks product value retention over 0-36 months comparing manufacturing costs against secondary resale value.
+
+![Page 4 Product Lifecycle](screenshots/page4_product_lifecycle.png)
+
+* **Key Metrics**: Resale Retention Index (`0.84`), Resale Price Retention (`84.2%`), Avg Manufacturing Cost (`$492.10`), Avg Product Weight (`2.4 kg`).
+* **Visuals**: 36-Month Price Depreciation Curve Line Chart, Condition Distribution Donut Chart, Top Resalable Products Buy-Back Matrix.
+
+---
+
+### Page 5: Component Failure & Quality Analysis
+> Pinpoints component failure hotspots, warranty claim drivers, supplier reliability, and repairability indices.
+
+![Page 5 Component Analysis](screenshots/page5_component_analysis.png)
+
+* **Key Metrics**: Total Warranty Claims (`10,000`), Component Failure Index (`200.0`), Avg Repair Cost (`$145.20`), Repairability Index (`8.4 / 10`).
+* **Visuals**: Most Failed Components Bar Chart by Supplier, Mfg Cost vs Repair Cost Ratio Scatter Plot, Warranty Claims Decomposition Tree.
+
+---
+
+### Page 6: Financial & Buy-Back Program Insights
+> Delivers financial modeling for OEM trade-in / buy-back programs, refurbishment margins, and 3-year secondary revenue recovery.
+
+![Page 6 Financial Insights](screenshots/page6_financial_insights.png)
+
+* **Key Metrics**: Buy-Back Margin (`$148.50 / unit`), Buy-Back ROI (`34.2%`), Secondary Market Revenue (`$5.3M / yr`), Warranty Expense Variance (`-4.2%`).
+* **Visuals**: Buy-Back Profitability Waterfall Chart, Projected 3-Year Revenue Recovery Forecast Line Chart, Category Profitability Matrix.
+
+---
+
+## ⚡ PySpark Delta Lake Pipeline Engine
+
+The core Lakehouse engine (`pyspark_pipeline/`) processes datasets across the Medallion layers:
+
+1. **Bronze Ingestion (`bronze_ingestion.py`)**: Reads raw CSV/JSON files, injects ingestion metadata (`_ingested_at`, `_source_file`), and writes Bronze Delta tables.
+2. **Silver Cleaning & Normalization (`silver_cleaning.py`)**: Deduplicates records, cleans nulls, converts foreign currencies (EUR, GBP, BRL, INR) to USD, and normalizes product condition tags.
+3. **Fuzzy SKU Matching Engine (`fuzzy_matching.py`)**: Reconciles unstructured marketplace product titles (*"Apple iPhone 14 Pro 256GB Deep Purple"*) to internal Manufacturing SKUs (*"SKU-APP-IP14P-256"*) using token overlap and string distance scoring.
+4. **Gold Metrics Aggregation (`gold_metrics.py`)**: Computes business KPIs and outputs Z-Ordered, partitioned Gold tables:
+   - `gold_circularity_metrics`
+   - `gold_component_failure`
+   - `gold_marketplace_analytics`
+   - `gold_sustainability_impact`
+
+---
+
+## 🕷️ Scrapy Secondary Marketplace Web Crawlers
+
+The `scrapy_project/echo_scraper` crawler suite automates scraping secondary product listings across 4 major platforms:
+
+- **Spiders**:
+  - `ebay_spider.py`: eBay electronics & mobile listings spider.
+  - `facebook_spider.py`: Facebook Marketplace local electronics spider.
+  - `olx_spider.py`: OLX regional used gear spider.
+  - `backmarket_spider.py`: BackMarket certified refurbished listings spider.
+- **Middlewares**: `RandomUserAgentMiddleware` (User-Agent header rotation) and `RetryWithDelayMiddleware` (AutoThrottle & rate-limit handling).
+- **Pipelines**: `DataCleaningPipeline`, `CurrencyNormalizerPipeline`, and `JsonExportPipeline`.
+
+---
+
+## 📐 Key Business KPIs & Mathematical Formulas
+
+### 1. Circularity Score (%)
+$$\text{Resale Index} = \frac{\text{Average Resale Price (USD)}}{\text{Total Manufacturing Cost (USD)}}$$
+
+$$\text{Landfill Diversion \%} = \frac{\text{Total Listings} - \text{Salvage Listings}}{\text{Total Listings}} \times 100$$
+
+$$\text{Circularity Score (\%)} = \left(0.5 \times \text{Resale Index} + 0.5 \times \frac{\text{Landfill Diversion \%}}{100}\right) \times 100$$
+
+---
+
+### 2. CO₂ Avoided (Tons) & Financial Savings ($)
+$$\text{CO}_2\text{ Avoided (Tons)} = \frac{\text{Units Circulated} \times \text{Mfg Carbon Footprint (kg)} \times 0.70}{1000}$$
+
+$$\text{Carbon Financial Value (USD)} = \text{CO}_2\text{ Avoided (Tons)} \times \$85.00$$
+
+---
+
+### 3. OEM Buy-Back Margin & ROI
+$$\text{Buy-Back Margin (USD)} = \text{Avg Resale Price} - (\text{Mfg Cost} \times 0.40) - \text{Avg Repair Cost}$$
+
+$$\text{Buy-Back ROI (\%)} = \frac{\text{Buy-Back Margin}}{\text{Trade-in Cost} + \text{Repair Cost}} \times 100$$
+
+---
+
+## 🔢 40+ Enterprise DAX Measures Catalog
+
+The file [`dashboards/DAX_Measures.dax`](file:///d:/EcoChain/dashboards/DAX_Measures.dax) contains **40+ production DAX measures**:
+
+| Category | Measure Name | DAX Expression Summary |
+| :--- | :--- | :--- |
+| **Core Base** | `[Total Listings]` | `COUNTROWS('gold_marketplace_analytics')` |
+| **Core Base** | `[Total Resale Volume USD]` | `SUM('gold_marketplace_analytics'[total_sales_volume_usd])` |
+| **Core Base** | `[Average Resale Price USD]` | `AVERAGE('gold_marketplace_analytics'[avg_price_usd])` |
+| **Sustainability** | `[Circularity Score %]` | `AVERAGE('gold_circularity_metrics'[circularity_score])` |
+| **Sustainability** | `[Landfill Diversion %]` | `AVERAGE('gold_circularity_metrics'[landfill_diversion_pct])` |
+| **Sustainability** | `[Total CO2 Avoided Tons]` | `SUM('gold_sustainability_impact'[total_co2_avoided_tons])` |
+| **Sustainability** | `[Carbon Financial Savings USD]` | `SUM('gold_sustainability_impact'[carbon_financial_savings_usd])` |
+| **Quality** | `[Component Failure Index]` | `DIVIDE([Total Warranty Claims], [Total Listed Units], 0) * 1000` |
+| **Quality** | `[Repairability Index (0-10)]` | `AVERAGE('gold_component_failure'[repairability_index])` |
+| **Financial** | `[Buy-Back Program Margin USD]` | `[Average Resale Price USD] - ([Average Manufacturing Cost USD] * 0.40) - [Average Repair Cost USD]` |
+| **Financial** | `[Buy-Back ROI %]` | `DIVIDE([Buy-Back Margin USD], ([Average Mfg Cost USD] * 0.40) + [Average Repair Cost USD], 0) * 100` |
+| **Time Intelligence**| `[Resale Volume YTD]` | `TOTALYTD([Total Resale Volume USD], 'DimDate'[Date])` |
+| **Time Intelligence**| `[Resale Volume YoY Growth %]`| `DIVIDE([Total Resale Volume USD] - [Resale Volume Prior Year], [Resale Volume Prior Year], 0) * 100` |
+
+---
+
+## 📂 Repository Folder Structure
 
 ```
 d:\EcoChain\
@@ -117,14 +263,14 @@ d:\EcoChain\
 │   └── workflows/
 │       └── ci_cd.yml                 # GitHub Actions pipeline for testing, linting, data validation
 ├── config/
-│   └── config.yaml                   # Global project configuration settings
+│   └── config.yaml                   # Global project settings, paths, exchange rates, delta configs
 ├── data/
 │   ├── raw/                          # Raw scraped JSON/CSV & ERP generated files
 │   ├── bronze/                       # Raw ingested Delta Lake tables with ingestion metadata
 │   ├── silver/                       # Cleaned, deduplicated, standardized & linked Delta tables
 │   └── gold/                         # Aggregated business metric Delta tables (Z-Ordered & partitioned)
 ├── datasets/
-│   ├── generate_datasets.py          # Synthetic data generator for BOM, Warranty, & 50,000 Secondary listings
+│   ├── generate_datasets.py          # Synthetic data generator for BOM, Warranty, & 50,000 Marketplace listings
 │   └── sample_data/                  # Exported sample datasets in CSV/Parquet format
 ├── docker/
 │   ├── Dockerfile                    # Container definition (Python 3.12, Java 17, PySpark, Scrapy)
@@ -164,11 +310,18 @@ d:\EcoChain\
 │       ├── middlewares.py            # User-Agent rotation & retry handling
 │       ├── pipelines.py              # Data cleaning, currency validation, export pipeline
 │       └── spiders/                  # eBay, Facebook Marketplace, OLX, BackMarket spiders
-├── screenshots/                      # SVG Visual Dashboard Mockup Assets (All 6 Pages)
+├── screenshots/                      # SVG & PNG Visual Dashboard Assets (All 6 Pages)
 ├── scripts/
-│   ├── generate_screenshots.py       # Visual asset generator
+│   ├── generate_png_screenshots.py   # High-res PNG dashboard renderer
+│   ├── generate_screenshots.py       # SVG graphic renderer
 │   └── run_daily_pipeline.py         # Daily automation runner
-├── tests/                            # Comprehensive Pytest test suite
+├── tests/
+│   ├── conftest.py                   # Test fixtures
+│   ├── run_tests.py                  # Suite runner
+│   ├── test_data_generator.py        # Data generator unit tests
+│   ├── test_scrapers.py              # Scrapy pipeline tests
+│   ├── test_pyspark_pipeline.py      # PySpark Medallion integration tests
+│   └── test_data_quality.py          # Data quality assertion tests
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── pyproject.toml
@@ -179,24 +332,11 @@ d:\EcoChain\
 
 ---
 
-## 📊 Power BI Dashboard Suite (6 Pages)
-
-| Page | Objective | Key Visuals |
-| :--- | :--- | :--- |
-| **1. Executive Overview** | High-level circularity score, total resale volume, landfill diversion | KPI Scorecards, Waterfall Chart, Ribbon Chart, Decomposition Tree |
-| **2. Sustainability** | Environmental CO₂ emissions avoided, material recovery %, carbon savings | Scatter Plot, Global Distribution Map, Treemap, Area Chart |
-| **3. Marketplace Analytics** | Pricing trends, condition distribution, seller ratings across platforms | Clustered Bar Chart, Line Chart, Matrix, Heatmap |
-| **4. Product Lifecycle** | Price depreciation over 0-36 months vs manufacturing costs | Depreciation Curve Line Chart, Donut Chart, Buy-Back Matrix |
-| **5. Component Analysis** | Component failure hotspots, warranty claims, repairability index | Supplier Bar Chart, Repair Cost Scatter Plot, Decomposition Tree |
-| **6. Financial Insights** | OEM Buy-back program margins, trade-in ROI %, 3-year revenue recovery | Profitability Waterfall Chart, Revenue Line Chart, Profitability Matrix |
-
----
-
-## 🚀 Quickstart & Installation
+## 🚀 Quickstart & Installation Guide
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/echochain/EchoChain.git
+git clone https://github.com/Kunalray0707/EchoChain.git
 cd EchoChain
 
 # 2. Install dependencies
@@ -208,23 +348,42 @@ python datasets/generate_datasets.py
 # 4. Run PySpark Medallion Lakehouse Pipeline Engine
 python pyspark_pipeline/run_pipeline.py
 
-# 5. Run Pytest Suite & Data Quality Checks
-pytest tests/ -v
+# 5. Render Power BI PNG & SVG Visual Screenshot Previews
+python scripts/generate_png_screenshots.py
+
+# 6. Execute Master Daily Pipeline Orchestrator & Test Suite
+python scripts/run_daily_pipeline.py
 ```
 
 ---
 
-## 🐳 Docker Deployment
+## 🐳 Docker & Containerized Deployment
+
+To spin up the containerized environment:
+
 ```bash
+# Build and run containerized service
 docker-compose up --build -d
+
+# Check container execution logs
+docker-compose logs -f echochain-engine
 ```
 
 ---
 
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for details.
+## 🛡️ CI/CD & Quality Control
+
+EchoChain includes a complete **GitHub Actions CI/CD Pipeline** (`.github/workflows/ci_cd.yml`) configured to automatically execute:
+- Code linting and formatting verification (`black`, `isort`).
+- Synthetic dataset generation & validation.
+- PySpark Medallion Lakehouse execution.
+- Data quality and schema assertions (`pytest`).
+- Docker container build verification.
 
 ---
 
-## 🤝 Contributors
-- **EchoChain Data Engineering & Analytics Team** (`data-eng@echochain.io`)
+## 📄 License & Contributors
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+- **Author**: Kunal Ray ([@Kunalray0707](https://github.com/Kunalray0707))
+- **Repository**: [https://github.com/Kunalray0707/EchoChain.git](https://github.com/Kunalray0707/EchoChain.git)
