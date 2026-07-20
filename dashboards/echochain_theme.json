@@ -1,0 +1,51 @@
+{
+  "name": "EchoChain Dark Premium Glassmorphism Theme",
+  "dataColors": [
+    "#10B981",
+    "#06B6D4",
+    "#8B5CF6",
+    "#F59E0B",
+    "#EF4444",
+    "#3B82F6",
+    "#EC4899",
+    "#14B8A6"
+  ],
+  "background": "#0F172A",
+  "foreground": "#F8FAFC",
+  "tableAccent": "#1E293B",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#1E293B" } },
+            "transparency": 10
+          }
+        ],
+        "border": [
+          {
+            "color": { "solid": { "color": "#334155" } },
+            "show": true,
+            "radius": 12
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#000000" } },
+            "position": "Outer",
+            "preset": "BottomRight"
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#F8FAFC" } },
+            "fontSize": 14,
+            "fontFamily": "Segoe UI Bold"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "echochain"
+version = "1.0.0"
+description = "Circular Economy & Secondary Market Lifecycle Analytics Platform"
+authors = [
+    { name = "EchoChain Data Engineering Team", email = "data-eng@echochain.io" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pyspark>=3.5.0",
+    "delta-spark>=3.0.0",
+    "pandas>=2.1.0",
+    "scrapy>=2.11.0",
+    "beautifulsoup4>=4.12.0",
+    "requests>=2.31.0",
+    "pyyaml>=6.0.1",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py312']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --durations=10"
+testpaths = [
+    "tests",
+]
+python_files = "test_*.py"

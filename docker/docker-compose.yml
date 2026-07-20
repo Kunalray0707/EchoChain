@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  echochain-engine:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: echochain_lakehouse_engine
+    volumes:
+      - ../data:/app/data
+      - ../logs:/app/logs
+      - ../datasets:/app/datasets
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SPARK_LOCAL_IP=127.0.0.1
+    ports:
+      - "4040:4040"
+    command: python scripts/run_daily_pipeline.py

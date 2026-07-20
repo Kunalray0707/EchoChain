@@ -1,0 +1,39 @@
+project:
+  name: "EchoChain Lakehouse Analytics"
+  version: "1.0.0"
+  environment: "production"
+
+paths:
+  raw_data: "data/raw"
+  bronze_data: "data/bronze"
+  silver_data: "data/silver"
+  gold_data: "data/gold"
+  datasets: "datasets/sample_data"
+
+spark:
+  app_name: "EchoChain-Medallion-Pipeline"
+  master: "local[*]"
+  driver_memory: "4g"
+  sql:
+    shuffle_partitions: "8"
+    extensions: "io.delta.sql.DeltaSparkSessionExtension"
+    catalog_implementation: "spark.databricks.delta.catalog.NoCatalog"
+
+currency_rates:
+  USD: 1.00
+  EUR: 1.09
+  GBP: 1.27
+  BRL: 0.18
+  INR: 0.012
+
+scraping:
+  max_listings_per_spider: 15000
+  user_agent_list:
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2.1 Safari/605.1.15"
+    - "Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0"
+
+fuzzy_matching:
+  threshold_high: 0.85
+  threshold_medium: 0.70
+  max_levenshtein_distance: 4

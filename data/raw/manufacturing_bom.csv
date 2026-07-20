@@ -1,0 +1,51 @@
+SKU,Product,Manufacturer,Category,Component,Manufacturing Cost,Production Date,Country,Supplier,Carbon Footprint,Weight,Material,Warranty Period,Warranty Claims,Failure Rate
+SKU-APP-IP14P-256,iPhone 14 Pro 256GB,Apple,Smartphones,Lithium-Ion Battery,61.36,2022-10-17,Germany,Nidec Motor,16.6,30.1,Aluminum,24,26,0.0198
+SKU-APP-IP14P-256,iPhone 14 Pro 256GB,Apple,Smartphones,OLED Display Assembly,51.58,2021-02-02,Mexico,LG Display,10.44,44.6,Glass,24,27,0.0119
+SKU-APP-IP14P-256,iPhone 14 Pro 256GB,Apple,Smartphones,A16 Bionic Logic Board,118.71,2022-04-05,Mexico,Kyocera Components,17.4,16.8,Lithium,24,494,0.0664
+SKU-APP-IP14P-256,iPhone 14 Pro 256GB,Apple,Smartphones,Titanium Frame,66.66,2021-10-12,Taiwan,Kyocera Components,19.15,35.2,Cobalt,24,21,0.0165
+SKU-APP-IP14P-256,iPhone 14 Pro 256GB,Apple,Smartphones,Triple Camera Module,79.74,2022-09-11,Germany,Murata Electronics,8.37,42.0,Rare Earth Elements,24,77,0.0187
+SKU-APP-MBA-M2,MacBook Air M2 13-inch,Apple,Laptops,M2 SoC Logic Board,167.15,2023-04-30,United States,LG Display,41.07,220.3,100% Recycled Aluminum,12,23,0.0235
+SKU-APP-MBA-M2,MacBook Air M2 13-inch,Apple,Laptops,Liquid Retina Panel,112.03,2023-03-03,Vietnam,Kyocera Components,19.75,177.1,Glass,12,53,0.0171
+SKU-APP-MBA-M2,MacBook Air M2 13-inch,Apple,Laptops,52.6Wh Battery,125.15,2021-06-16,Germany,Samsung SDI,23.18,188.6,Copper,12,523,0.0756
+SKU-APP-MBA-M2,MacBook Air M2 13-inch,Apple,Laptops,Magic Keyboard,183.48,2022-07-01,South Korea,Kyocera Components,21.96,226.2,Gold,12,542,0.0793
+SKU-APP-MBA-M2,MacBook Air M2 13-inch,Apple,Laptops,MagSafe 3 Connector,189.85,2023-05-14,China,TSMC Semiconductor,19.12,374.3,100% Recycled Aluminum,12,292,0.0664
+SKU-SAM-GS23U-512,Galaxy S23 Ultra 512GB,Samsung,Smartphones,Dynamic AMOLED 2X Screen,144.44,2021-08-05,Mexico,Sony Semiconductor,15.59,64.1,Armor Aluminum,24,134,0.0249
+SKU-SAM-GS23U-512,Galaxy S23 Ultra 512GB,Samsung,Smartphones,Snapdragon 8 Gen 2 Board,73.14,2021-05-27,Mexico,Nidec Motor,11.54,54.2,Gorilla Glass Victus 2,24,178,0.0284
+SKU-SAM-GS23U-512,Galaxy S23 Ultra 512GB,Samsung,Smartphones,5000mAh Battery,68.13,2022-01-06,Germany,Samsung SDI,21.03,50.9,Cobalt,24,12,0.0164
+SKU-SAM-GS23U-512,Galaxy S23 Ultra 512GB,Samsung,Smartphones,S-Pen Digitizer,61.6,2022-10-05,Vietnam,Murata Electronics,17.02,56.4,Recycled Plastics,24,236,0.0369
+SKU-SAM-GS23U-512,Galaxy S23 Ultra 512GB,Samsung,Smartphones,200MP Camera Sensor,104.85,2023-09-22,China,Kyocera Components,20.33,61.7,Armor Aluminum,24,104,0.018
+SKU-SON-WH1000-M5,WH-1000XM5 Wireless Headphones,Sony,Audio,30mm Driver Units,19.07,2021-04-25,China,Samsung SDI,2.73,20.2,ABS Plastic,12,463,0.0605
+SKU-SON-WH1000-M5,WH-1000XM5 Wireless Headphones,Sony,Audio,Dual Noise Canceling Chips,36.1,2022-06-04,South Korea,Samsung SDI,5.09,40.1,Synthetic Leather,12,356,0.0547
+SKU-SON-WH1000-M5,WH-1000XM5 Wireless Headphones,Sony,Audio,Soft Fit Leather Earpads,31.97,2022-01-18,Taiwan,Sony Semiconductor,3.99,72.6,Neodymium Magnet,12,14,0.0471
+SKU-SON-WH1000-M5,WH-1000XM5 Wireless Headphones,Sony,Audio,30-hour Battery,14.08,2021-01-20,United States,LG Display,3.41,86.5,ABS Plastic,12,182,0.0665
+SKU-SON-WH1000-M5,WH-1000XM5 Wireless Headphones,Sony,Audio,Integrated Microphone Array,26.6,2023-06-19,Japan,Samsung SDI,2.47,69.4,Synthetic Leather,12,542,0.0671
+SKU-DEL-XPS15-9530,XPS 15 Laptop i9 32GB,Dell,Laptops,Intel i9-13900H Board,240.7,2022-11-07,South Korea,LG Display,61.31,291.0,CNC Machined Aluminum,36,328,0.0711
+SKU-DEL-XPS15-9530,XPS 15 Laptop i9 32GB,Dell,Laptops,NVIDIA RTX 4070 GPU,195.72,2023-01-01,Vietnam,TSMC Semiconductor,83.76,490.5,Carbon Fiber,36,227,0.0407
+SKU-DEL-XPS15-9530,XPS 15 Laptop i9 32GB,Dell,Laptops,4K OLED Touch Display,171.79,2021-09-11,United States,TSMC Semiconductor,50.64,458.6,Copper Heatpipes,36,66,0.0261
+SKU-DEL-XPS15-9530,XPS 15 Laptop i9 32GB,Dell,Laptops,86Wh Battery Module,283.55,2022-12-26,South Korea,Murata Electronics,45.14,623.0,CNC Machined Aluminum,36,71,0.0702
+SKU-DEL-XPS15-9530,XPS 15 Laptop i9 32GB,Dell,Laptops,Carbon Fiber Palmrest,243.49,2022-11-17,Vietnam,LG Display,60.78,528.6,Carbon Fiber,36,445,0.0718
+SKU-DYS-V15-DETECT,V15 Detect Cordless Vacuum,Dyson,Home Appliances,Hyperdymium Motor,45.83,2023-03-15,Mexico,Nidec Motor,8.12,327.0,Polycarbonate,24,219,0.0561
+SKU-DYS-V15-DETECT,V15 Detect Cordless Vacuum,Dyson,Home Appliances,Laser Slim Fluffy Cleaner Head,66.35,2022-04-24,Mexico,Kyocera Components,5.45,794.9,ABS Plastic,24,50,0.0552
+SKU-DYS-V15-DETECT,V15 Detect Cordless Vacuum,Dyson,Home Appliances,HEPA Filtration Cylinder,66.24,2023-03-31,Japan,Murata Electronics,6.92,407.2,Aluminum Tube,24,191,0.0414
+SKU-DYS-V15-DETECT,V15 Detect Cordless Vacuum,Dyson,Home Appliances,7-cell Click-in Battery,34.11,2022-04-19,Germany,Foxconn Tech,12.02,618.9,Polycarbonate,24,416,0.0703
+SKU-DYS-V15-DETECT,V15 Detect Cordless Vacuum,Dyson,Home Appliances,Cyclonic Dust Bin,73.46,2022-10-30,South Korea,Samsung SDI,11.36,1059.0,ABS Plastic,24,671,0.0748
+SKU-LG-OLED65-C3,OLED65 C3 4K Smart TV,LG Electronics,Televisions,65-inch Self-lit OLED Panel,172.7,2022-02-21,United States,Nidec Motor,49.13,3125.5,Composite Fiber,24,58,0.0141
+SKU-LG-OLED65-C3,OLED65 C3 4K Smart TV,LG Electronics,Televisions,alpha9 AI Processor Gen6 Board,258.67,2021-09-29,Vietnam,Samsung SDI,81.01,2606.5,Glass,24,457,0.0588
+SKU-LG-OLED65-C3,OLED65 C3 4K Smart TV,LG Electronics,Televisions,40W 2.2 Ch Speaker Array,135.86,2021-07-14,Taiwan,Foxconn Tech,91.25,3923.9,Steel Chassis,24,381,0.048
+SKU-LG-OLED65-C3,OLED65 C3 4K Smart TV,LG Electronics,Televisions,Power Supply Unit,191.91,2021-02-21,Germany,Samsung SDI,65.26,5149.9,Composite Fiber,24,115,0.021
+SKU-LG-OLED65-C3,OLED65 C3 4K Smart TV,LG Electronics,Televisions,Magical Remote Sensor,194.03,2021-03-12,South Korea,Foxconn Tech,74.88,2382.2,Glass,24,112,0.0184
+SKU-NIN-SWITCH-OLED,Nintendo Switch OLED Model,Nintendo,Gaming,7-inch OLED Display,16.87,2022-09-27,South Korea,Kyocera Components,6.32,97.7,Plastic,12,95,0.0321
+SKU-NIN-SWITCH-OLED,Nintendo Switch OLED Model,Nintendo,Gaming,Tegra X1 System Board,23.3,2021-09-02,Germany,Foxconn Tech,3.8,106.8,Glass,12,335,0.042
+SKU-NIN-SWITCH-OLED,Nintendo Switch OLED Model,Nintendo,Gaming,Joy-Con Rail Controls,35.74,2022-04-15,China,Samsung SDI,5.87,44.9,Lithium,12,260,0.0476
+SKU-NIN-SWITCH-OLED,Nintendo Switch OLED Model,Nintendo,Gaming,4310mAh Battery,26.22,2023-08-14,China,Foxconn Tech,3.51,61.3,Plastic,12,142,0.0299
+SKU-NIN-SWITCH-OLED,Nintendo Switch OLED Model,Nintendo,Gaming,Docking Station Mainboard,42.6,2022-11-15,China,TSMC Semiconductor,4.61,108.8,Glass,12,125,0.0757
+SKU-BOS-WASH-SER8,Series 8 Front Load Washer,Bosch,Home Appliances,EcoSilence Drive Motor,53.24,2023-07-01,Taiwan,LG Display,90.03,11284.8,Stainless Steel,36,399,0.0523
+SKU-BOS-WASH-SER8,Series 8 Front Load Washer,Bosch,Home Appliances,VarioDrum Stainless Tub,108.59,2022-12-05,United States,TSMC Semiconductor,68.68,15574.9,Concrete Ballast,36,657,0.0734
+SKU-BOS-WASH-SER8,Series 8 Front Load Washer,Bosch,Home Appliances,AquaStop Safety Valve,86.48,2022-10-12,China,Samsung SDI,69.62,5950.4,Rubber,36,436,0.064
+SKU-BOS-WASH-SER8,Series 8 Front Load Washer,Bosch,Home Appliances,Digital Touch Control Board,88.39,2023-01-30,Japan,Foxconn Tech,101.28,17011.2,Copper,36,131,0.0178
+SKU-BOS-WASH-SER8,Series 8 Front Load Washer,Bosch,Home Appliances,Heavy Weight Ballast Block,80.77,2023-05-05,United States,Kyocera Components,89.98,14409.1,Stainless Steel,36,51,0.0129
+SKU-CAN-EOS-R6M2,EOS R6 Mark II Mirrorless Body,Canon,Cameras,24.2MP CMOS Full-Frame Sensor,240.76,2021-08-04,Japan,LG Display,22.8,117.6,Magnesium Alloy,24,219,0.0492
+SKU-CAN-EOS-R6M2,EOS R6 Mark II Mirrorless Body,Canon,Cameras,DIGIC X Image Processor Board,125.16,2023-06-05,Taiwan,Nidec Motor,25.08,85.6,Optical Glass,24,82,0.0389
+SKU-CAN-EOS-R6M2,EOS R6 Mark II Mirrorless Body,Canon,Cameras,5-axis In-Body Stabilizer,238.05,2023-04-02,Germany,Nidec Motor,23.97,98.5,Engineering Plastic,24,157,0.0211
+SKU-CAN-EOS-R6M2,EOS R6 Mark II Mirrorless Body,Canon,Cameras,EVF Display Module,97.62,2023-06-13,China,LG Display,19.45,89.7,Magnesium Alloy,24,288,0.0743
+SKU-CAN-EOS-R6M2,EOS R6 Mark II Mirrorless Body,Canon,Cameras,Magnesium Alloy Frame,94.27,2021-08-17,China,Kyocera Components,14.7,113.0,Optical Glass,24,578,0.0705
