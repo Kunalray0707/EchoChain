@@ -1,4 +1,5 @@
 """Verify the static GitHub Pages dashboard contains expected content."""
+
 import os
 
 path = os.path.join(os.path.dirname(__file__), "..", "docs", "index.html")
@@ -21,4 +22,3 @@ for c in checks:
 
 print("FILE_SIZE", len(content))
 print("ALL_OK", all_ok)
-

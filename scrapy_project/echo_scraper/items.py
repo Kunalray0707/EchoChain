@@ -1,9 +1,11 @@
 import scrapy
 
+
 class ListingItem(scrapy.Item):
     """
     Data model for scraped secondary marketplace product listings.
     """
+
     listing_id = scrapy.Field()
     marketplace = scrapy.Field()
     product_title = scrapy.Field()

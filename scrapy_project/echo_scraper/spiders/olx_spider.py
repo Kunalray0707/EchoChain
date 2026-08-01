@@ -1,7 +1,9 @@
-import scrapy
 import json
 import os
+
+import scrapy
 from echo_scraper.spiders.base_spider import BaseMarketplaceSpider
+
 
 class OlxSpider(BaseMarketplaceSpider):
     name = "olx"
@@ -30,5 +32,5 @@ class OlxSpider(BaseMarketplaceSpider):
                 "listing_date": "2024-01-20",
                 "shipping_cost": 15.0,
                 "images_count": 3,
-                "description": "Galaxy S23 Ultra in good working order."
+                "description": "Galaxy S23 Ultra in good working order.",
             }

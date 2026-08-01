@@ -1,12 +1,16 @@
-import scrapy
 import json
 import os
+
+import scrapy
 from echo_scraper.spiders.base_spider import BaseMarketplaceSpider
+
 
 class BackMarketSpider(BaseMarketplaceSpider):
     name = "backmarket"
     allowed_domains = ["backmarket.com"]
-    start_urls = ["https://www.backmarket.com/en-us/l/smartphones/37efd565-3850-4828-971c-4b67f12e8cf3"]
+    start_urls = [
+        "https://www.backmarket.com/en-us/l/smartphones/37efd565-3850-4828-971c-4b67f12e8cf3"
+    ]
 
     def parse(self, response):
         raw_json_path = os.path.join("data", "raw", "marketplace_listings.json")
@@ -30,5 +34,5 @@ class BackMarketSpider(BaseMarketplaceSpider):
                 "listing_date": "2024-01-10",
                 "shipping_cost": 0.0,
                 "images_count": 6,
-                "description": "Certified Refurbished iPhone 14 Pro with 12 month warranty."
+                "description": "Certified Refurbished iPhone 14 Pro with 12 month warranty.",
             }

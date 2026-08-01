@@ -1,9 +1,11 @@
-import os
 import json
+import os
 from datetime import datetime
+
 try:
     from scrapy.exceptions import DropItem
 except ImportError:
+
     class DropItem(Exception):
         pass
 
@@ -12,13 +14,14 @@ class DataCleaningPipeline:
     """
     Cleans raw strings, validates required fields, and normalizes numbers.
     """
+
     def process_item(self, item, spider):
         if not item.get("product_title"):
             raise DropItem(f"Missing product_title in {item}")
-            
+
         item["product_title"] = item["product_title"].strip()
         item["scraped_at"] = datetime.utcnow().isoformat()
-        
+
         # Ensure numerical types
         try:
             item["price"] = float(item.get("price", 0.0))
@@ -30,10 +33,12 @@ class DataCleaningPipeline:
 
         return item
 
+
 class CurrencyNormalizerPipeline:
     """
     Normalizes local currencies (EUR, GBP, BRL, INR) to standard USD estimate.
     """
+
     RATES = {"USD": 1.0, "EUR": 1.09, "GBP": 1.27, "BRL": 0.18, "INR": 0.012}
 
     def process_item(self, item, spider):
@@ -42,10 +47,12 @@ class CurrencyNormalizerPipeline:
         item["price_usd"] = round(item["price"] * rate, 2)
         return item
 
+
 class JsonExportPipeline:
     """
     Exports scraped items to a local JSON output file for Bronze ingestion.
     """
+
     def open_spider(self, spider):
         os.makedirs(os.path.join("data", "raw"), exist_ok=True)
         self.filename = os.path.join("data", "raw", f"scraped_{spider.name}.json")

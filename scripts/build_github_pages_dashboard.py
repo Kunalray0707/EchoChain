@@ -11,6 +11,7 @@ Output: docs/index.html  (GitHub Pages serves /EchoChain from the docs/ folder)
 
 import json
 import os
+
 import pandas as pd
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -489,11 +490,12 @@ def main():
     with open(OUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"[OK] Built static dashboard: {OUT_FILE}")
-    print(f"[OK] Embedded records: circularity={len(data['circularity'])}, "
-          f"marketplace={len(data['marketplace'])}, component={len(data['component'])}, "
-          f"sustainability={len(data['sustainability'])}")
+    print(
+        f"[OK] Embedded records: circularity={len(data['circularity'])}, "
+        f"marketplace={len(data['marketplace'])}, component={len(data['component'])}, "
+        f"sustainability={len(data['sustainability'])}"
+    )
 
 
 if __name__ == "__main__":
     main()
-

@@ -4,7 +4,9 @@ Matches unstructured listing product titles to internal Manufacturing SKUs.
 """
 
 import os
+
 import pandas as pd
+
 
 def match_sku(title):
     t = str(title).lower()
@@ -30,6 +32,7 @@ def match_sku(title):
         return "SKU-CAN-EOS-R6M2"
     return "SKU-APP-IP14P-256"
 
+
 def reconcile_sku_matching(spark, silver_dir="data/silver"):
     print("=== Starting Fuzzy SKU Matching Pipeline ===")
     lst_csv = os.path.join(silver_dir, "silver_listings.csv")
@@ -46,7 +49,14 @@ def reconcile_sku_matching(spark, silver_dir="data/silver"):
     df_lst["match_confidence"] = 0.92
 
     df_linked = df_lst.merge(df_bom, left_on="matched_sku", right_on="SKU", how="left")
-    df_linked.rename(columns={"Product": "mfg_product", "Manufacturer": "mfg_manufacturer", "Category": "mfg_category"}, inplace=True)
+    df_linked.rename(
+        columns={
+            "Product": "mfg_product",
+            "Manufacturer": "mfg_manufacturer",
+            "Category": "mfg_category",
+        },
+        inplace=True,
+    )
 
     out_path = os.path.join(silver_dir, "silver_linked_listings")
     os.makedirs(out_path, exist_ok=True)
@@ -56,4 +66,6 @@ def reconcile_sku_matching(spark, silver_dir="data/silver"):
     except Exception:
         pass
 
-    print(f"[OK] Fuzzy SKU Matching Complete: {len(df_linked)} listings reconciled with internal ERP SKUs.")
+    print(
+        f"[OK] Fuzzy SKU Matching Complete: {len(df_linked)} listings reconciled with internal ERP SKUs."
+    )

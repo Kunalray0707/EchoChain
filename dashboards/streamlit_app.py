@@ -47,11 +47,11 @@ COLORS = {
     "border": "#334155",
     "text": "#F8FAFC",
     "muted": "#94A3B8",
-    "primary": "#10B981",   # emerald
+    "primary": "#10B981",  # emerald
     "secondary": "#06B6D4",  # cyan
     "tertiary": "#8B5CF6",  # violet
-    "warning": "#F59E0B",   # amber
-    "danger": "#EF4444",    # red
+    "warning": "#F59E0B",  # amber
+    "danger": "#EF4444",  # red
 }
 
 PLOTLY_TEMPLATE = {
@@ -59,13 +59,20 @@ PLOTLY_TEMPLATE = {
         "paper_bgcolor": "rgba(0,0,0,0)",
         "plot_bgcolor": "rgba(0,0,0,0)",
         "font": {"color": COLORS["text"], "family": "Segoe UI, sans-serif"},
-        "colorway": [COLORS["primary"], COLORS["secondary"], COLORS["tertiary"], COLORS["warning"], COLORS["danger"]],
+        "colorway": [
+            COLORS["primary"],
+            COLORS["secondary"],
+            COLORS["tertiary"],
+            COLORS["warning"],
+            COLORS["danger"],
+        ],
         "xaxis": {"gridcolor": "rgba(148,163,184,0.15)", "zerolinecolor": "rgba(148,163,184,0.2)"},
         "yaxis": {"gridcolor": "rgba(148,163,184,0.15)", "zerolinecolor": "rgba(148,163,184,0.2)"},
         "legend": {"bgcolor": "rgba(0,0,0,0)", "orientation": "h", "yanchor": "bottom", "y": 1.02},
         "margin": {"l": 40, "r": 20, "t": 40, "b": 40},
     }
 }
+
 
 # ---------------------------------------------------------------------------
 # Data Loading (cached)
@@ -236,12 +243,14 @@ def render_footer():
     """Render page footer."""
     st.markdown(
         '<div class="echochain-footer">EchoChain · Circular Economy &amp; Secondary Market '
-        'Lifecycle Analytics · Powered by PySpark Delta Lakehouse Gold Tables</div>',
+        "Lifecycle Analytics · Powered by PySpark Delta Lakehouse Gold Tables</div>",
         unsafe_allow_html=True,
     )
 
 
-def empty_state(message="No data available. Run `python pyspark_pipeline/run_pipeline.py` to build Gold tables."):
+def empty_state(
+    message="No data available. Run `python pyspark_pipeline/run_pipeline.py` to build Gold tables.",
+):
     st.info(message)
 
 
@@ -296,7 +305,7 @@ def page_executive_overview(dfs):
         )
         fig.update_traces(marker_line_width=0)
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
     with col_right:
         render_section("Resale Index vs Avg Resale Price")
@@ -307,16 +316,28 @@ def page_executive_overview(dfs):
             size="total_listings_count",
             color="Manufacturer",
             hover_name="Product",
-            labels={"avg_resale_price_usd": "Avg Resale Price (USD)", "resale_index": "Resale Index"},
+            labels={
+                "avg_resale_price_usd": "Avg Resale Price (USD)",
+                "resale_index": "Resale Index",
+            },
         )
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
     render_section("Product Performance Table")
-    cols = ["SKU", "Product", "Manufacturer", "Category", "resale_index", "circularity_score",
-            "landfill_diversion_pct", "refurbishment_score", "co2_avoided_tons"]
+    cols = [
+        "SKU",
+        "Product",
+        "Manufacturer",
+        "Category",
+        "resale_index",
+        "circularity_score",
+        "landfill_diversion_pct",
+        "refurbishment_score",
+        "co2_avoided_tons",
+    ]
     available = [c for c in cols if c in circ.columns]
-    st.dataframe(circ[available].sort_values("circularity_score", ascending=False), width='stretch')
+    st.dataframe(circ[available].sort_values("circularity_score", ascending=False), width="stretch")
 
 
 # ---------------------------------------------------------------------------
@@ -360,7 +381,7 @@ def page_sustainability(dfs):
                 labels={"total_co2_avoided_tons": "CO₂ Avoided (Tons)"},
             )
             style_fig(fig)
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, width="stretch")
 
         with col_right:
             render_section("Carbon Financial Savings by Category")
@@ -372,7 +393,7 @@ def page_sustainability(dfs):
                 labels={"carbon_financial_savings_usd": "Savings (USD)"},
             )
             style_fig(fig)
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, width="stretch")
 
     if not circ.empty:
         render_section("Circularity vs Landfill Diversion by Product")
@@ -383,10 +404,13 @@ def page_sustainability(dfs):
             size="co2_avoided_tons",
             color="Category",
             hover_name="Product",
-            labels={"landfill_diversion_pct": "Landfill Diversion (%)", "circularity_score": "Circularity Score (%)"},
+            labels={
+                "landfill_diversion_pct": "Landfill Diversion (%)",
+                "circularity_score": "Circularity Score (%)",
+            },
         )
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
 
 # ---------------------------------------------------------------------------
@@ -447,7 +471,7 @@ def page_marketplace(dfs):
             labels={"normalized_condition": "Condition", "avg_price_usd": "Avg Price (USD)"},
         )
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
     with col_right:
         render_section("Listing Volume by Marketplace")
@@ -457,26 +481,36 @@ def page_marketplace(dfs):
             names="marketplace",
             values="listings_count",
             hole=0.45,
-            color_discrete_sequence=[COLORS["primary"], COLORS["secondary"], COLORS["tertiary"], COLORS["warning"]],
+            color_discrete_sequence=[
+                COLORS["primary"],
+                COLORS["secondary"],
+                COLORS["tertiary"],
+                COLORS["warning"],
+            ],
         )
         fig.update_traces(textposition="inside", textinfo="percent+label")
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
     render_section("Seller Rating vs Price Heatmap")
     heat_data = df.pivot_table(
-        index="marketplace", columns="normalized_condition", values="avg_seller_rating", aggfunc="mean"
+        index="marketplace",
+        columns="normalized_condition",
+        values="avg_seller_rating",
+        aggfunc="mean",
     ).fillna(0)
-    fig = go.Figure(data=go.Heatmap(
-        z=heat_data.values,
-        x=heat_data.columns,
-        y=heat_data.index,
-        colorscale="Tealgrn",
-        texttemplate="%{z:.2f}",
-        textfont={"color": COLORS["text"], "size": 11},
-    ))
+    fig = go.Figure(
+        data=go.Heatmap(
+            z=heat_data.values,
+            x=heat_data.columns,
+            y=heat_data.index,
+            colorscale="Tealgrn",
+            texttemplate="%{z:.2f}",
+            textfont={"color": COLORS["text"], "size": 11},
+        )
+    )
     style_fig(fig)
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, width="stretch")
 
 
 # ---------------------------------------------------------------------------
@@ -510,11 +544,25 @@ def page_lifecycle(dfs):
     with col_left:
         render_section("Mfg Cost vs Avg Resale Price")
         fig = go.Figure()
-        fig.add_trace(go.Bar(name="Mfg Cost", x=circ["Product"], y=circ["total_mfg_cost_usd"], marker_color=COLORS["secondary"]))
-        fig.add_trace(go.Bar(name="Avg Resale Price", x=circ["Product"], y=circ["avg_resale_price_usd"], marker_color=COLORS["primary"]))
+        fig.add_trace(
+            go.Bar(
+                name="Mfg Cost",
+                x=circ["Product"],
+                y=circ["total_mfg_cost_usd"],
+                marker_color=COLORS["secondary"],
+            )
+        )
+        fig.add_trace(
+            go.Bar(
+                name="Avg Resale Price",
+                x=circ["Product"],
+                y=circ["avg_resale_price_usd"],
+                marker_color=COLORS["primary"],
+            )
+        )
         fig.update_layout(barmode="group")
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
     with col_right:
         render_section("Resale Index by Product (Buy-Back Candidate)")
@@ -527,7 +575,7 @@ def page_lifecycle(dfs):
             labels={"resale_index": "Resale Index"},
         )
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
     render_section("Condition Distribution (Refurbished vs Salvage)")
     cond_df = circ[["Product", "refurbished_count", "salvage_count"]].melt(
@@ -539,10 +587,13 @@ def page_lifecycle(dfs):
         y="Count",
         color="Type",
         barmode="group",
-        color_discrete_map={"refurbished_count": COLORS["primary"], "salvage_count": COLORS["danger"]},
+        color_discrete_map={
+            "refurbished_count": COLORS["primary"],
+            "salvage_count": COLORS["danger"],
+        },
     )
     style_fig(fig)
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, width="stretch")
 
 
 # ---------------------------------------------------------------------------
@@ -561,7 +612,11 @@ def page_component_failure(dfs):
 
     # ---- KPIs ----
     total_claims = int(comp["claim_count"].sum())
-    failure_idx = (total_claims / max(int(comp["warranty_claims_count"].sum()), 1)) * 1000 if "warranty_claims_count" in comp.columns else 0
+    failure_idx = (
+        (total_claims / max(int(comp["warranty_claims_count"].sum()), 1)) * 1000
+        if "warranty_claims_count" in comp.columns
+        else 0
+    )
     avg_repair = comp["avg_repair_cost_usd"].mean()
     avg_repairability = comp["repairability_index"].mean()
 
@@ -576,7 +631,11 @@ def page_component_failure(dfs):
     with col_left:
         render_section("Most Failed Components")
         top_components = (
-            comp.groupby("Component")["claim_count"].sum().reset_index().sort_values("claim_count", ascending=False).head(10)
+            comp.groupby("Component")["claim_count"]
+            .sum()
+            .reset_index()
+            .sort_values("claim_count", ascending=False)
+            .head(10)
         )
         fig = px.bar(
             top_components,
@@ -588,7 +647,7 @@ def page_component_failure(dfs):
             labels={"claim_count": "Claims"},
         )
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
     with col_right:
         render_section("Mfg Cost vs Repair Cost Ratio")
@@ -600,10 +659,13 @@ def page_component_failure(dfs):
             color="repair_cost_ratio",
             hover_name="Component",
             color_continuous_scale="RdYlGn_r",
-            labels={"manufacturing_cost_usd": "Mfg Cost (USD)", "avg_repair_cost_usd": "Avg Repair Cost (USD)"},
+            labels={
+                "manufacturing_cost_usd": "Mfg Cost (USD)",
+                "avg_repair_cost_usd": "Avg Repair Cost (USD)",
+            },
         )
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
     # Supplier filter table
     st.sidebar.markdown("### 🔧 Component Filters")
@@ -613,10 +675,18 @@ def page_component_failure(dfs):
         comp = comp[comp["Supplier"] == sel_supplier]
 
     render_section("Component Failure Detail Table")
-    cols = ["SKU", "Component", "Supplier", "claim_count", "avg_repair_cost_usd",
-            "repair_cost_ratio", "repairability_index", "failure_rate"]
+    cols = [
+        "SKU",
+        "Component",
+        "Supplier",
+        "claim_count",
+        "avg_repair_cost_usd",
+        "repair_cost_ratio",
+        "repairability_index",
+        "failure_rate",
+    ]
     available = [c for c in cols if c in comp.columns]
-    st.dataframe(comp[available].sort_values("claim_count", ascending=False), width='stretch')
+    st.dataframe(comp[available].sort_values("claim_count", ascending=False), width="stretch")
 
 
 # ---------------------------------------------------------------------------
@@ -657,31 +727,41 @@ def page_financial(dfs):
     c1.metric("Buy-Back Margin", f"${avg_margin:,.2f} / unit")
     c2.metric("Buy-Back ROI", f"{avg_roi:.1f}%")
     c3.metric("Secondary Revenue", f"${secondary_rev:,.0f}")
-    c4.metric("Avg Resale Price", f"${circ['avg_resale_price_usd'].mean():,.2f}" if not circ.empty else "—")
+    c4.metric(
+        "Avg Resale Price",
+        f"${circ['avg_resale_price_usd'].mean():,.2f}" if not circ.empty else "—",
+    )
 
     col_left, col_right = st.columns(2)
 
     with col_left:
         render_section("Buy-Back Profitability by Product")
         if not circ.empty:
-            fig = go.Figure(go.Waterfall(
-                name="Buy-Back Margin",
-                orientation="v",
-                measure=["relative"] * len(circ),
-                x=circ["Product"],
-                y=circ["buyback_margin"],
-                text=[f"${v:,.0f}" for v in circ["buyback_margin"]],
-                connector={"line": {"color": COLORS["muted"]}},
-                increasing={"marker": {"color": COLORS["primary"]}},
-                decreasing={"marker": {"color": COLORS["danger"]}},
-            ))
+            fig = go.Figure(
+                go.Waterfall(
+                    name="Buy-Back Margin",
+                    orientation="v",
+                    measure=["relative"] * len(circ),
+                    x=circ["Product"],
+                    y=circ["buyback_margin"],
+                    text=[f"${v:,.0f}" for v in circ["buyback_margin"]],
+                    connector={"line": {"color": COLORS["muted"]}},
+                    increasing={"marker": {"color": COLORS["primary"]}},
+                    decreasing={"marker": {"color": COLORS["danger"]}},
+                )
+            )
             style_fig(fig)
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, width="stretch")
 
     with col_right:
         render_section("Buy-Back ROI by Category")
         if not circ.empty:
-            roi_by_cat = circ.groupby("Category")["buyback_roi"].mean().reset_index().sort_values("buyback_roi")
+            roi_by_cat = (
+                circ.groupby("Category")["buyback_roi"]
+                .mean()
+                .reset_index()
+                .sort_values("buyback_roi")
+            )
             fig = px.bar(
                 roi_by_cat,
                 x="Category",
@@ -691,11 +771,15 @@ def page_financial(dfs):
                 labels={"buyback_roi": "ROI (%)"},
             )
             style_fig(fig)
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, width="stretch")
 
     if not mkt.empty:
         render_section("Sales Volume by Marketplace & Condition")
-        vol = mkt.groupby(["marketplace", "normalized_condition"])["total_sales_volume_usd"].sum().reset_index()
+        vol = (
+            mkt.groupby(["marketplace", "normalized_condition"])["total_sales_volume_usd"]
+            .sum()
+            .reset_index()
+        )
         fig = px.bar(
             vol,
             x="marketplace",
@@ -705,7 +789,7 @@ def page_financial(dfs):
             labels={"marketplace": "Marketplace", "total_sales_volume_usd": "Sales Volume (USD)"},
         )
         style_fig(fig)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, width="stretch")
 
 
 # ---------------------------------------------------------------------------
@@ -750,4 +834,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

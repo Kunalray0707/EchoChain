@@ -1,7 +1,9 @@
-import scrapy
 import json
 import os
+
+import scrapy
 from echo_scraper.spiders.base_spider import BaseMarketplaceSpider
+
 
 class EbaySpider(BaseMarketplaceSpider):
     name = "ebay"
@@ -37,5 +39,5 @@ class EbaySpider(BaseMarketplaceSpider):
                         "listing_date": "2024-01-15",
                         "shipping_cost": 10.0,
                         "images_count": 4,
-                        "description": title
+                        "description": title,
                     }

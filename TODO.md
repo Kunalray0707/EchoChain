@@ -1,30 +1,19 @@
-# EchoChain Streamlit Dashboard Implementation TODO
+# EchoChain Fixes & README Update — Task List
 
-## Step 1: Install Dependencies
-- [x] Install `streamlit` and `pyarrow` via pip
-- [x] Add `streamlit>=1.32.0` and `pyarrow>=14.0.0` to `requirements.txt`
-- [x] Add `streamlit` and `pyarrow` to `pyproject.toml` dependencies
+## ✅ Completed
+- [x] **Restore correct Streamlit 1.60 API** — reverted the wrong `use_container_width=True` change back to the modern `width="stretch"` (18×) in `dashboards/streamlit_app.py`; `use_container_width` count = 0
+- [x] **Verified Streamlit app** — `SYNTAX_OK`, `width='stretch' count: 18`, `use_container_width count (deprecated): 0`, `ALL_CHECKS_PASSED`
+- [x] **Fix CI lint failures** — ran `black` + `isort` across the repo (46 files clean); updated `pyproject.toml` black target-version to `['py311','py312']`
+- [x] **Fix stale verifier/fixer scripts** — `verify_streamlit_app.py` now REQUIRES `width="stretch"` and rejects `use_container_width`; `fix_streamlit_api.py` converts legacy `use_container_width` → `width="stretch"`
+- [x] **Capture real Streamlit screenshots** — all 6 pages captured via Selenium + Edge (`screenshots/streamlit_page1..6_*.png`)
+- [x] **Rebuild static GitHub Pages dashboard** — `docs/index.html` rebuilt with fresh Gold data (verified: `SKU-APP-IP14P-256`, `renderPage5`, `Plotly.newPlot`)
+- [x] **Run full test suite** — 9/9 data quality & unit tests pass
+- [x] **Clean up temp diagnostic scripts** — removed `check_*.py`, `get_ci_logs.py`, `check_env.py` etc.
+- [x] **Rewrite README.md** — full attractive README featuring the real Streamlit dashboard screenshots (all 6 pages), Power BI gallery, architecture diagram, KPI formulas, DAX catalog, quickstart, and Docker/CI sections
 
-## Step 2: Build Streamlit Dashboard
-- [x] Create `dashboards/streamlit_app.py` with 6-page interactive dashboard
-  - [x] Page 1: Executive Overview
-  - [x] Page 2: Sustainability & Environmental Impact
-  - [x] Page 3: Secondary Marketplace Analytics
-  - [x] Page 4: Product Lifecycle & Resale Retention
-  - [x] Page 5: Component Failure & Quality Analysis
-  - [x] Page 6: Financial & Buy-Back Program Insights
-- [x] Add dark theme CSS matching `echochain_theme.json`
-- [x] Add data loading with `@st.cache_data` and graceful fallback
+## 🔄 In Progress
+- [ ] Commit & push all fixes
 
-## Step 3: Fix Minor Errors
-- [x] Remove empty `data/raw/e_waste_dataset.csv/` directory
-- [x] Remove empty `datasets/sample_data/e_waste_dataset.csv/` directory
-- [x] Fix `tests/test_data_quality.py` to validate CSV gold tables
-
-## Step 4: Validate
-- [x] Run `py_compile` on new/changed files
-- [x] Launch `streamlit run dashboards/streamlit_app.py` to verify
-- [x] Smoke test import + data loading (4 gold tables, 6 page functions) — PASSED
-- [x] Live server HTTP 200 check on `http://localhost:8501`
-- [x] Stop server & clean up temp diagnostic files
+## 📌 Notes
+- GitHub Pages root currently serves README; user must switch Settings → Pages → Source to **GitHub Actions**
 

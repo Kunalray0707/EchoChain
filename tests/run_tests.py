@@ -2,8 +2,8 @@
 Standalone PyTest Test Runner Fallback for EchoChain Suite
 """
 
-import sys
 import os
+import sys
 import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -17,12 +17,12 @@ def run_all_tests():
 
     # Discover and add test files
     tests_dir = os.path.dirname(os.path.abspath(__file__))
-    
+
     # Run simple custom assertions
     import test_data_generator
-    import test_scrapers
-    import test_pyspark_pipeline
     import test_data_quality
+    import test_pyspark_pipeline
+    import test_scrapers
     from conftest import sample_listing_item
 
     print("[TEST] Running test_data_generator...")
@@ -50,6 +50,7 @@ def run_all_tests():
     print("=================================================================")
     print("[SUCCESS] All 9 Data Quality & Unit Tests Passed Successfully.")
     print("=================================================================")
+
 
 if __name__ == "__main__":
     run_all_tests()

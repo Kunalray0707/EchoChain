@@ -1,7 +1,9 @@
-import scrapy
 import json
 import os
+
+import scrapy
 from echo_scraper.spiders.base_spider import BaseMarketplaceSpider
+
 
 class FacebookMarketplaceSpider(BaseMarketplaceSpider):
     name = "facebook"
@@ -30,5 +32,5 @@ class FacebookMarketplaceSpider(BaseMarketplaceSpider):
                 "listing_date": "2024-02-01",
                 "shipping_cost": 0.0,
                 "images_count": 5,
-                "description": "Mint condition MacBook Air M2."
+                "description": "Mint condition MacBook Air M2.",
             }

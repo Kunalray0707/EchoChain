@@ -1,7 +1,8 @@
 """Verify the embedded JSON data in docs/index.html is complete and valid."""
+
 import json
-import re
 import os
+import re
 
 path = os.path.join(os.path.dirname(__file__), "..", "docs", "index.html")
 content = open(path, encoding="utf-8").read()
@@ -23,4 +24,3 @@ for k, v in data.items():
 for key in ["circularity", "marketplace", "component", "sustainability"]:
     assert data.get(key), f"Missing data for {key}"
 print("\nALL_DATA_PRESENT: True")
-

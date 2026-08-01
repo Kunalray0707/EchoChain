@@ -7,10 +7,10 @@ Orchestrates:
 4. Execution Logging & Report Generation
 """
 
-import sys
+import logging
 import os
 import subprocess
-import logging
+import sys
 import time
 from datetime import datetime
 
@@ -22,14 +22,15 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
 
+
 def run_step(command, step_name):
     print(f"--> [ORCHESTRATOR] Starting Step: {step_name}")
     logging.info(f"Starting step: {step_name} with command: {command}")
-    
+
     start_time = time.time()
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     elapsed = round(time.time() - start_time, 2)
-    
+
     if result.returncode == 0:
         print(f"[OK] Completed {step_name} in {elapsed}s.")
         logging.info(f"Step {step_name} succeeded in {elapsed}s.")
@@ -39,6 +40,7 @@ def run_step(command, step_name):
         print(f"Error output: {result.stderr}")
         logging.error(f"Step {step_name} failed: {result.stderr}")
         return False
+
 
 def main():
     print("=================================================================")
@@ -60,6 +62,7 @@ def main():
     print("=================================================================")
     print("[SUCCESS] EchoChain Daily Orchestration Cycle Complete.")
     print("=================================================================")
+
 
 if __name__ == "__main__":
     main()

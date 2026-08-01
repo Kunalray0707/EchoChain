@@ -2,15 +2,18 @@
 SparkSession factory supporting native PySpark & pure-Python fallback for lightweight environments.
 """
 
-import sys
 import os
+import sys
+
 import pandas as pd
+
 
 class MockSparkSession:
     """
     Lightweight, high-performance PySpark DataFrame API compatible fallback
     for environments where native Java/PySpark JVM runtime is not pre-installed.
     """
+
     def __init__(self, app_name="EchoChain-Mock-Spark"):
         self.app_name = app_name
         self.version = "3.5.0-EchoChainEngine"
@@ -44,10 +47,12 @@ class MockSparkSession:
                 df_pd = pd.DataFrame()
         return MockDataFrame(df_pd)
 
+
 class MockDataFrame:
     """
     DataFrame wrapper presenting PySpark operations on underlying Pandas DataFrames.
     """
+
     def __init__(self, df_pd: pd.DataFrame):
         self._df = df_pd.copy()
 
@@ -105,12 +110,14 @@ class MockDataFrame:
         except Exception:
             pass
 
+
 def get_spark_session(app_name="EchoChain-Lakehouse-Analytics"):
     """
     Creates native SparkSession if PySpark is available, otherwise returns MockSparkSession.
     """
     try:
         from pyspark.sql import SparkSession
+
         builder = (
             SparkSession.builder.appName(app_name)
             .master("local[*]")
@@ -121,5 +128,7 @@ def get_spark_session(app_name="EchoChain-Lakehouse-Analytics"):
         spark.sparkContext.setLogLevel("WARN")
         return spark
     except Exception as e:
-        print(f"[NOTE] Native PySpark JVM package not active ({e}). Using EchoChain Spark-API Engine.")
+        print(
+            f"[NOTE] Native PySpark JVM package not active ({e}). Using EchoChain Spark-API Engine."
+        )
         return MockSparkSession(app_name)

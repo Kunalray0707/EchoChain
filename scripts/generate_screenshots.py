@@ -17,11 +17,11 @@ PAGES_DATA = [
             ("Resale Volume USD", "$21.3M", "#06B6D4"),
             ("Landfill Diversion", "95.8%", "#8B5CF6"),
             ("CO2 Avoided", "14,250 Tons", "#F59E0B"),
-            ("Buy-Back ROI", "34.2%", "#10B981")
+            ("Buy-Back ROI", "34.2%", "#10B981"),
         ],
         "chart1_title": "Cost vs Secondary Recovery (Waterfall)",
         "chart2_title": "Resale Volume by Marketplace (Ribbon)",
-        "chart3_title": "Circularity Breakdown (Decomposition Tree)"
+        "chart3_title": "Circularity Breakdown (Decomposition Tree)",
     },
     {
         "filename": "page2_sustainability.svg",
@@ -30,11 +30,11 @@ PAGES_DATA = [
             ("CO2 Avoided", "14,250 Tons", "#10B981"),
             ("Carbon Value", "$1.21M", "#06B6D4"),
             ("Material Recovery", "88.2%", "#8B5CF6"),
-            ("E-Waste Diversion", "1,840 Tons", "#F59E0B")
+            ("E-Waste Diversion", "1,840 Tons", "#F59E0B"),
         ],
         "chart1_title": "Carbon Footprint vs Resale Retention (Scatter)",
         "chart2_title": "Global Secondary Distribution Map",
-        "chart3_title": "Material Composition Tonnage (Treemap)"
+        "chart3_title": "Material Composition Tonnage (Treemap)",
     },
     {
         "filename": "page3_marketplace_analytics.svg",
@@ -43,11 +43,11 @@ PAGES_DATA = [
             ("Total Listings", "50,000", "#06B6D4"),
             ("Avg Resale Price", "$425.80", "#10B981"),
             ("Seller Rating", "4.72 / 5.0", "#F59E0B"),
-            ("Salvage Rate", "4.1%", "#EF4444")
+            ("Salvage Rate", "4.1%", "#EF4444"),
         ],
         "chart1_title": "Average Resale Price by Condition (Bar)",
         "chart2_title": "Listing Volume & Sold Count Trends",
-        "chart3_title": "Seller Rating & Shipping Impact Heatmap"
+        "chart3_title": "Seller Rating & Shipping Impact Heatmap",
     },
     {
         "filename": "page4_product_lifecycle.svg",
@@ -56,11 +56,11 @@ PAGES_DATA = [
             ("Resale Index", "0.84", "#10B981"),
             ("Price Retention", "84.2%", "#06B6D4"),
             ("Avg Mfg Cost", "$492.10", "#8B5CF6"),
-            ("Avg Weight", "2.4 kg", "#F59E0B")
+            ("Avg Weight", "2.4 kg", "#F59E0B"),
         ],
         "chart1_title": "Price Depreciation Curve (0-36 Months)",
         "chart2_title": "Condition Share Distribution (Donut)",
-        "chart3_title": "Top Resalable Products Buy-Back Matrix"
+        "chart3_title": "Top Resalable Products Buy-Back Matrix",
     },
     {
         "filename": "page5_component_analysis.svg",
@@ -69,11 +69,11 @@ PAGES_DATA = [
             ("Warranty Claims", "10,000", "#EF4444"),
             ("Failure Index", "200.0", "#F59E0B"),
             ("Avg Repair Cost", "$145.20", "#06B6D4"),
-            ("Repairability Score", "8.4 / 10", "#10B981")
+            ("Repairability Score", "8.4 / 10", "#10B981"),
         ],
         "chart1_title": "Most Failed Components by Supplier",
         "chart2_title": "Mfg Cost vs Repair Cost Ratio (Scatter)",
-        "chart3_title": "Warranty Issue Breakdown (Decomposition Tree)"
+        "chart3_title": "Warranty Issue Breakdown (Decomposition Tree)",
     },
     {
         "filename": "page6_financial_insights.svg",
@@ -82,13 +82,14 @@ PAGES_DATA = [
             ("Buy-Back Margin", "$148.50 / unit", "#10B981"),
             ("Buy-Back ROI", "34.2%", "#06B6D4"),
             ("Secondary Market Revenue", "$5.3M / yr", "#8B5CF6"),
-            ("Warranty Expense Var", "-4.2%", "#10B981")
+            ("Warranty Expense Var", "-4.2%", "#10B981"),
         ],
         "chart1_title": "Buy-Back Profitability Waterfall",
         "chart2_title": "3-Year Revenue Recovery Forecast",
-        "chart3_title": "Category Trade-in Profitability Matrix"
-    }
+        "chart3_title": "Category Trade-in Profitability Matrix",
+    },
 ]
+
 
 def generate_svg(page):
     kpi_blocks = ""
@@ -158,11 +159,13 @@ def generate_svg(page):
         f.write(svg_content)
     print(f"[OK] Generated graphic: {filepath}")
 
+
 def main():
     print("=== Generating Power BI Dashboard Visual Assets ===")
     for page in PAGES_DATA:
         generate_svg(page)
     print("=== Visual Assets Successfully Generated ===")
+
 
 if __name__ == "__main__":
     main()

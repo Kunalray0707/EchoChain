@@ -2,6 +2,7 @@
 Test fixture functions for unit tests
 """
 
+
 def sample_bom_data():
     return [
         {
@@ -19,9 +20,10 @@ def sample_bom_data():
             "Material": "Lithium",
             "Warranty Period": 12,
             "Warranty Claims": 10,
-            "Failure Rate": 0.02
+            "Failure Rate": 0.02,
         }
     ]
+
 
 def sample_listing_item():
     return {
@@ -37,5 +39,5 @@ def sample_listing_item():
         "listing_date": "2024-01-10",
         "shipping_cost": 5.0,
         "images_count": 4,
-        "description": "Clean refurbished phone."
+        "description": "Clean refurbished phone.",
     }

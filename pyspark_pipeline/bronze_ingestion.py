@@ -4,8 +4,10 @@ Ingests raw CSV/JSON files into Delta Bronze tables with ingestion metadata.
 """
 
 import os
-import pandas as pd
 from datetime import datetime
+
+import pandas as pd
+
 
 def ingest_bronze_tables(spark, raw_dir="data/raw", bronze_dir="data/bronze"):
     """
@@ -84,6 +86,5 @@ def ingest_bronze_tables(spark, raw_dir="data/raw", bronze_dir="data/bronze"):
             print(f"[OK] Ingested Bronze E-Waste: {len(df)} records.")
         except Exception as e:
             print(f"[WARNING] E-Waste CSV read deferred: {e}")
-
 
     print("=== Bronze Ingestion Complete ===")
