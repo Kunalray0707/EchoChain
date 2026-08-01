@@ -6,7 +6,7 @@ path = os.path.join(os.path.dirname(__file__), "..", "docs", "index.html")
 content = open(path, encoding="utf-8").read()
 
 checks = [
-    "gold_circularity_metrics.csv",
+    "const DATA = {",
     "Circularity Score by Product",
     "SKU-APP-IP14P-256",
     "renderPage5",
