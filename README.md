@@ -26,6 +26,7 @@
 - [Business Problem & Strategic Solution](#-business-problem--strategic-solution)
 - [Lakehouse Medallion Architecture](#-lakehouse-medallion-architecture)
 - [Power BI Executive Dashboard Gallery (6 Pages)](#-power-bi-executive-dashboard-gallery-6-pages)
+- [Streamlit Interactive Dashboard](#-streamlit-interactive-dashboard)
 - [PySpark Delta Lake Pipeline Engine](#-pyspark-delta-lake-pipeline-engine)
 - [Scrapy Secondary Marketplace Web Crawlers](#-scrapy-secondary-marketplace-web-crawlers)
 - [Key Business KPIs & Mathematical Formulas](#-key-business-kpis--mathematical-formulas)
@@ -179,6 +180,37 @@ EchoChain includes a **6-Page Dark Theme Power BI Suite** built with glassmorphi
 
 ---
 
+## 📊 Streamlit Interactive Dashboard
+
+EchoChain includes a **6-page interactive Streamlit dashboard** (`dashboards/streamlit_app.py`) that renders the same Gold-layer analytics with a dark glassmorphism theme matching the Power BI suite. It provides real-time, self-serve exploration of circular economy KPIs with interactive Plotly charts and sidebar filters.
+
+### Pages
+1. **📊 Executive Overview** — Circularity score, resale volume, landfill diversion & buy-back ROI KPIs + charts.
+2. **🌱 Sustainability** — CO₂ avoided, carbon financial value, refurbishment rate & units circulated.
+3. **🏪 Marketplace Analytics** — Pricing, seller ratings & listing volume across eBay, FB, OLX & BackMarket (with sidebar filters).
+4. **🔄 Product Lifecycle** — Value retention, price depreciation & buy-back candidates.
+5. **🔧 Component Quality** — Warranty claims, repair cost ratios & repairability indices (with supplier filter).
+6. **💰 Financial Insights** — Buy-back margins, secondary revenue recovery & trade-in profitability.
+
+### Run It
+
+```bash
+# 1. Install the dashboard dependency
+pip install -r requirements.txt
+
+# 2. (Optional) Build Gold tables if not already present
+python pyspark_pipeline/run_pipeline.py
+
+# 3. Launch the dashboard
+streamlit run dashboards/streamlit_app.py
+```
+
+Then open **http://localhost:8501** in your browser.
+
+> **Note:** The dashboard reads from `data/gold/*.csv` (produced by the PySpark Medallion pipeline). Run the pipeline first if the Gold tables are missing.
+
+---
+
 ## ⚡ PySpark Delta Lake Pipeline Engine
 
 The core Lakehouse engine (`pyspark_pipeline/`) processes datasets across the Medallion layers:
@@ -289,6 +321,7 @@ d:\EcoChain\
 ├── dashboards/
 │   ├── DAX_Measures.dax              # 40+ Enterprise DAX measures (Time Intelligence, Circularity)
 │   ├── echochain_theme.json          # Modern dark-themed glassmorphism Power BI color palette JSON
+│   ├── streamlit_app.py              # 6-page interactive Streamlit analytics dashboard
 │   └── POWER_BI_SPECIFICATION.md     # Power BI visual layout blueprint & field mapping
 ├── notebooks/
 │   ├── 01_eda_and_data_discovery.ipynb
@@ -351,7 +384,10 @@ python pyspark_pipeline/run_pipeline.py
 # 5. Render Power BI PNG & SVG Visual Screenshot Previews
 python scripts/generate_png_screenshots.py
 
-# 6. Execute Master Daily Pipeline Orchestrator & Test Suite
+# 6. Launch the Interactive Streamlit Dashboard
+streamlit run dashboards/streamlit_app.py
+
+# 7. Execute Master Daily Pipeline Orchestrator & Test Suite
 python scripts/run_daily_pipeline.py
 ```
 

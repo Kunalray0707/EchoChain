@@ -44,7 +44,12 @@ def build_gold_metrics(spark, silver_dir="data/silver", gold_dir="data/gold"):
     df_gold_resale["resale_index"] = (df_gold_resale["avg_resale_price_usd"] / df_gold_resale["total_mfg_cost_usd"]).round(4)
     df_gold_resale["refurbishment_score"] = ((df_gold_resale["refurbished_count"] / df_gold_resale["total_listings_count"]) * 100).round(2)
     df_gold_resale["landfill_diversion_pct"] = (((df_gold_resale["total_listings_count"] - df_gold_resale["salvage_count"]) / df_gold_resale["total_listings_count"]) * 100).round(2)
-    df_gold_resale["circularity_score"] = ((df_gold_resale["resale_index"] * 0.5 + (df_gold_resale["landfill_diversion_pct"] / 100.0) * 0.5) * 100).round(2)
+    # Circularity Score formula: (0.5 * Resale Index + 0.5 * Landfill Diversion) * 100
+    # Clip the resale index component to [0, 1] so the blended score stays within [0, 100].
+    clipped_resale_index = df_gold_resale["resale_index"].clip(lower=0.0, upper=1.0)
+    df_gold_resale["circularity_score"] = (
+        (clipped_resale_index * 0.5 + (df_gold_resale["landfill_diversion_pct"] / 100.0) * 0.5) * 100
+    ).clip(lower=0.0, upper=100.0).round(2)
     df_gold_resale["co2_avoided_tons"] = ((df_gold_resale["total_listings_count"] * df_gold_resale["total_carbon_footprint_kg"] * 0.7) / 1000.0).round(2)
 
     gold_resale_path = os.path.join(gold_dir, "gold_circularity_metrics")
