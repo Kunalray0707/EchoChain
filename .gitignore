@@ -41,3 +41,4 @@ data/bronze/
 data/silver/
 data/gold/*.parquet
 data/gold/*/
+_commit_msg.txt 
