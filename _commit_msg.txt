@@ -1,0 +1,10 @@
+feat: serve EchoChain dashboard on GitHub Pages via static HTML
+
+- Add scripts/build_github_pages_dashboard.py: builds a self-contained static
+  dashboard (docs/index.html) with Plotly.js charts and embedded Gold data,
+  mirroring the Streamlit app (6 pages, dark glassmorphism theme).
+- Add .github/workflows/deploy_github_pages.yml: GitHub Actions workflow that
+  rebuilds docs/index.html from data/gold/*.csv on every push to main and
+  deploys it to GitHub Pages.
+- Add docs/index.html: generated static dashboard (committed for immediate use).
+
