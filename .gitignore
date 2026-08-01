@@ -41,4 +41,8 @@ data/bronze/
 data/silver/
 data/gold/*.parquet
 data/gold/*/
-_commit_msg.txt 
+
+# Local helper scripts
+git_push.bat
+_commit_msg.txt
+*.tmp
