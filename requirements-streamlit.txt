@@ -1,0 +1,8 @@
+# Streamlit Community Cloud deployment requirements
+# Minimal set required to run dashboards/streamlit_app.py (no PySpark/Java needed).
+
+streamlit>=1.32.0
+pandas>=2.1.0
+plotly>=5.18.0
+numpy>=1.26.0
+

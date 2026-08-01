@@ -24,7 +24,13 @@ import streamlit as st
 # ---------------------------------------------------------------------------
 # Paths & Configuration
 # ---------------------------------------------------------------------------
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+# Resolve the repo root regardless of whether the CWD is the repo root (local)
+# or the app runs from a subpath (Streamlit Community Cloud).
+if os.path.exists(os.path.join(os.getcwd(), "data", "gold")):
+    ROOT_DIR = os.getcwd()
+else:
+    ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
 GOLD_DIR = os.path.join(ROOT_DIR, "data", "gold")
 
 GOLD_FILES = {

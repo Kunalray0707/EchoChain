@@ -39,4 +39,5 @@ htmlcov/
 # Local data cache (except sample data committed)
 data/bronze/
 data/silver/
-data/gold/
+data/gold/*.parquet
+data/gold/*/
